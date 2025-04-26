@@ -1,0 +1,27 @@
+def isDisarium(num):
+    sum = 0
+    str_num = str(num)
+    for i in range(len(str_num)):
+        sum += int(str_num[i]) ** (i + 1)
+    return sum == num
+
+def firstN_Disarium(n):
+    count = 0
+    num = 0
+    while count < n:
+        num += 1
+        if isDisarium(num):
+            print(num)
+            count += 1
+
+def disariumBetween(a, b):
+    
+    for num in range(a, b + 1):
+        if isDisarium(num):
+            print(num)
+
+
+print("First 5 Disarium numbers are:")
+firstN_Disarium(10)
+print("Disarium numbers between two numbers are: ")
+disariumBetween(100,200)
