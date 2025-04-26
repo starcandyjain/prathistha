@@ -1,0 +1,17 @@
+def max_stolen_value(val):
+    if not val:
+        return 0
+    if len(val) == 1:
+        return val[0]
+
+    dp = [0] * len(val)
+    dp[0] = val[0]
+    dp[1] = max(val[0], val[1])
+
+    for i in range(2, len(val)):
+        dp[i] = max(dp[i-1], dp[i-2] + val[i])
+
+    return dp[-1]
+
+val = [6, 7, 1, 3, 8, 2, 5]
+print(max_stolen_value(val))
